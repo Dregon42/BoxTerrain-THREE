@@ -3,7 +3,9 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import GUI from 'lil-gui';
 import { Brush, Evaluator, SUBTRACTION } from 'three-bvh-csg';
-import CustomShaderMaterial from 'three-custom-shader-material/vanilla'
+import CustomShaderMaterial from 'three-custom-shader-material/vanilla';
+import terrainVertexShader from './shaders/terrain/vertex.glsl';
+import terrainFragmentShader from './shaders/terrain/fragment.glsl';
 
 /**
  * Base
@@ -60,6 +62,8 @@ geometry.rotateX(-Math.PI * 0.5);
 const material = new CustomShaderMaterial({
     // csm
     baseMaterial: THREE.MeshStandardMaterial,
+    vertexShader: terrainVertexShader,
+    fragmentShader: terrainFragmentShader,
 
     // MEshStandardMaterial
     metalness: 0,

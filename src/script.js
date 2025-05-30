@@ -36,6 +36,22 @@ rgbeLoader.load('/spruit_sunrise.hdr', (environmentMap) =>
 })
 
 /**
+ * Water
+ */
+const water = new THREE.Mesh(
+    new THREE.PlaneGeometry(10, 10, 1, 1),
+    new THREE.MeshPhysicalMaterial({
+        transmission: 1,
+        roughness: 0.34,
+    })
+);
+water.position.y = -0.1;
+water.rotation.x = -Math.PI * 0.5;
+scene.add(water);
+
+
+
+/**
  * Board
  */
 // Brushes
